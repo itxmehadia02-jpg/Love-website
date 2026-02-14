@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For You ❤️</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="hearts">
+    <span>❤️</span><span>💖</span><span>💕</span><span>❤️</span><span>💗</span>
+  </div>
+
+  <div class="container">
+    <h1 class="fade-in">Hey You 💕</h1>
+
+    <p class="slide-up delay1">I made this little website just for you.</p>
+    <p class="slide-up delay2">I may not say it perfectly,</p>
+    <p class="slide-up delay3">but my feelings are real.</p>
+
+    <h2 class="zoom-in delay4">I LOVE YOU ❤️</h2>
+
+    <button class="love-btn" onclick="explodeHearts(event)">
+      Click Me 💌
+    </button>
+
+    <p id="hidden-love">
+      You mean more to me than words can say 🌸
+    </p>
+  </div>
+
+<script>
+function explodeHearts(e) {
+  document.getElementById("hidden-love").style.opacity = "1";
+
+  for (let i = 0; i < 25; i++) {
+    let heart = document.createElement("div");
+    heart.className = "explode-heart";
+    heart.innerHTML = "❤️";
+
+    heart.style.left = e.clientX + "px";
+    heart.style.top = e.clientY + "px";
+
+    heart.style.setProperty("--x", (Math.random() * 300 - 150) + "px");
+    heart.style.setProperty("--y", (Math.random() * -300) + "px");
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 1000);
+  }
+}
+</script>
+
+</body>
+</html>
